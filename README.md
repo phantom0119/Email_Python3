@@ -1,7 +1,9 @@
 # Email_Python3
-Email Sending Program for Python and SQL Server
+<h3> Email Sending Program for Python and SQL Server. </h3>
 
-To make an exe file and use it, use the Pyinstaller library.
+To make an exe file and use it, use the <b>'Pyinstaller'</b> library.
 
-The image files were downloaded from a free site.
-if there are a problem, I will take action immediately(delete or modify).
+<p> The image files were downloaded from a free site. </p>
+<p> if there are a problem, I will take action immediately(delete or modify). </p>
+
+
