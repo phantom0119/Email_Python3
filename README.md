@@ -21,3 +21,16 @@ To make an exe file and use it, use the <b>'Pyinstaller'</b> library.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/70738211/197369074-ed7db695-9dbc-449b-aaa7-7e54b3b9f272.gif" width=90%>
 </p>
+
+<h3 align="center"> 첨부파일로 보낼 파일이 저장된 경로 설정 </h3>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/70738211/197398975-7444bc97-50a3-4b3d-b490-cfccd39fbe56.PNG" width=80%>
+</p>
+
+<h3 align="center"> 메일 전송 </h3>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/70738211/197403106-0e08e191-38fc-4240-9996-c38efd0b7102.gif" width=90%>
+</p>
+
+
+
