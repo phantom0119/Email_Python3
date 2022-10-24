@@ -35,14 +35,14 @@ def SendMail_Function(row, email, pw, dir_path, file_type, Company):
 
         '''
         set_debuglevel(1 or True) : 서버로부터 만들어진 모든 연결과 메시지 전송-수신 디버깅 메시지 확인
-         2 : 시간 값을 포함함 (timestamp)
+        2 : 시간 값을 포함함 (timestamp)
         '''
 
         # SMTP 계정 인증 설정
         session.ehlo()      # ESMTP 서버에 식별
         session.starttls()  # 전송계층보안 TLS 적용
         session.ehlo()      # 적용 후 재호출
-        session.login(email, pw)   # ID:cjsqhr753@gmail.com 앱 비밀번호:'frmyntipyaqeuwlu'   <- 요건 천보기 계정...★
+        session.login(email, pw)   # email: gmail 계정 아이디,   pw: 해당 계정의 "앱 비밀번호"
     
         # 메일 콘텐츠 설정
         '''
@@ -151,5 +151,5 @@ if __name__ == '__main__':
         else:
             SendMail_Function(row)
 
- 
+
 # 501KB pdf 파일 3명 전송 = 56.96초 

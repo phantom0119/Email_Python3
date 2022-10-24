@@ -8,7 +8,7 @@ from types import new_class
 import pymssql                         # MSSQL 객체 (연결용)
 from pymssql import _mssql  # pyinstaller 적용
 import uuid                 # pyinstaller 적용
-import 급여명세xl           # 명세 파일 작성
+import 급여명세xl           # 명세 파일 작성 (테스트용)
 import sendmail             # 메일 보낼 때 쓰는 Py
 import os                   # 시스템 관리
 
@@ -31,10 +31,6 @@ dist 폴더에 있는 exe 프로그램을 그대로 실행하면 오류가 발�
 프로그램에 사용되는 이미지 파일을 모두 exe 프로그램과 동일한 경로에 배치해 주어야 합니다.
 
 사용한 이미지 파일 : connect, constart, link_folder, notconnect, search, sendmail
-
-
-프로그램 사용 및 수정에 문의를 하고자 하신다면... 천보기에게 연락주십쇼...!
-천보기 연락 : 010-5538-0978
 """
 
 
@@ -203,8 +199,8 @@ class MailProgram(tk.Tk):
         self.treeview.configure(yscrollcommand=scroll1.set)         # y 스크롤 적용 (위아래 스크롤)
         # 태그가 더블클릭되면 이벤트 발생
         self.treeview.tag_bind("select_tag", sequence='<Double-1>', callback=self.treeview_select)
-       
-       
+
+
         # -----------------------------------
         #      Image, Button, Canvas List
         # -----------------------------------
@@ -277,7 +273,6 @@ class MailProgram(tk.Tk):
         self.text1.place(x=170, y=170)   # 선택인원 출력
         self.text2.place(x=143, y=111)   # 입력 IP 주소
         self.text3.place(x=400, y=10)    # 상태 출력 공간
-                                         # text4는 DB 연결 설정하는 공간에서 씀.
         self.text5.pack(side = "left")   # 폴더 경로 텍스트, Frame 안에 있기 때문에 배치 옵션 다름.
         
         #self.radio1.pack(side="left")        # 급여 라디오 버튼
@@ -296,7 +291,7 @@ class MailProgram(tk.Tk):
         
         self.year_combo.pack(side="left")    # 년 콤보박스
         self.month_combo.pack(side="left")   # 월 콤보박스
-       
+
     
         Search_Button.place(x=230, y=60)        # 검색 버튼
         Send_Mail_Button.place(x=1010, y=57)    # 메일 전송 버튼
@@ -318,8 +313,7 @@ class MailProgram(tk.Tk):
 
         # -----------------------------------------------------------------------------------------------------
         #                          여기는 Gmail 로그인 정보 가져오기 위한 부분
-        #               프로그램 실행 경로에 "SendMail_Info.txt" 파일 있으면 조회합니다.
-        #                해당 파일 열어보면 뭔 글씬지 모르지요~~~ 암호화 했걸랑요~ XD
+        #               프로그램 실행 경로에 "SendMail_Info.txt" 파일 있으면 조회합니다.           
         #     체크박스 상태 (True,False), 첨부파일이 저장되어있던 경로, 접속한 IP, Gmail 계정, Gmail PW 순서
         # -----------------------------------------------------------------------------------------------------
         if os.path.isfile(self.program_log):
@@ -537,7 +531,6 @@ class MailProgram(tk.Tk):
                                 
         else:   # ID나 PW에 값이 없는 경우
             #print("Please Insert ID and PW!!")
-
             self.text3.configure(state="normal")
             self.text3.bind("<Key>", lambda a: "break")
             self.text3.delete(1.0, "end")
@@ -676,7 +669,7 @@ class MailProgram(tk.Tk):
         self.entry6.place(x=190, y=165)   # DB 서버 PW 입력 공간
         Login_Button2.place(x=210, y=220)  # 로그인 버튼
         self.checkbox3.place(x=45, y=220) # 체크박스
-        self.text4.place(x=65, y=280)     # 상태 출력 공간
+        self.text4.place(x=65, y=280)     # 상태 출력 공간. DB 연결 설정하는 공간에서 씀(큰 역할은 아직).
 
 
         self.entry3.configure(font=self.login_font)
@@ -780,10 +773,6 @@ class MailProgram(tk.Tk):
             IP_Part1 = DB_Server.split('.')[0]
             if IP_Part1 == '119':
                 DB_Server = DB_Server + ':1455'
-
-        DataBase = 'hpublic00'          # 접근할 데이터베이스
-        Access_ID = 'sa'                # ID, MSSQL 관리자 = sa
-        Access_PW = '7654'              # PW
         '''
         
         
@@ -956,7 +945,6 @@ class MailProgram(tk.Tk):
 
 
 
-
     # 여긴 금여 명세 Excel 자동화 해보겠다고 끄적거린 흔적입니다...
     # 지우긴 아쉬워서 이곳에 봉안합니다...
     '''
@@ -1007,7 +995,6 @@ class MailProgram(tk.Tk):
             Data = self.sql_query(sql, 1)
             Data = Data[0].strip()
             Excel_Data.append(Data) # 계좌 정보
-
 
         print(Excel_Data)
     '''
